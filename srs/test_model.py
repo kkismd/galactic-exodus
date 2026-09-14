@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from experiments.galactic_exodus.srs.model import (
+from srs.model import (
     SrsCommand,
     SrsCommandResult,
     Direction,

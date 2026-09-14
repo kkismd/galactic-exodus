@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import unittest
 
-from experiments.galactic_exodus.srs.model import Position
-from experiments.galactic_exodus.srs.run_fixture import FIXTURES_DIR, SrsFixtureRunResult, run_fixture
+from srs.model import Position
+from srs.run_fixture import FIXTURES_DIR, SrsFixtureRunResult, run_fixture
 
 
 def run_named_fixture(name: str) -> SrsFixtureRunResult:

@@ -4,8 +4,8 @@ import unittest
 from dataclasses import replace
 from pathlib import Path
 
-from experiments.galactic_exodus.srs.contracts import load_default_contracts
-from experiments.galactic_exodus.srs.encounter import (
+from srs.contracts import load_default_contracts
+from srs.encounter import (
     BASE_ENCOUNTER_CHANCE_PER_SRS_TURN,
     ENCOUNTERS_PER_LRS_STEP,
     ENEMY_SALVAGE_DROP_CHANCES,
@@ -22,7 +22,7 @@ from experiments.galactic_exodus.srs.encounter import (
     spawn_enemies_for_encounter,
     terrain_encounter_modifier,
 )
-from experiments.galactic_exodus.srs.model import (
+from srs.model import (
     Direction,
     Position,
     SectorDescriptor,
@@ -31,11 +31,11 @@ from experiments.galactic_exodus.srs.model import (
     SrsEnemyTier,
     SrsTerrainType,
 )
-from experiments.galactic_exodus.srs.run_fixture import FIXTURES_DIR, run_fixture
-from experiments.galactic_exodus.srs.test_engine_movement import make_state, replace_cell_terrain
+from srs.run_fixture import FIXTURES_DIR, run_fixture
+from srs.test_engine_movement import make_state, replace_cell_terrain
 
 
-REPO_ROOT = Path(__file__).resolve().parents[3]
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
 class SrsEncounterTests(unittest.TestCase):

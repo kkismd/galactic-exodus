@@ -5,11 +5,11 @@ import unittest
 from dataclasses import replace
 from pathlib import Path
 
-from experiments.galactic_exodus.srs.contracts import load_default_contracts
-from experiments.galactic_exodus.srs.engine import apply_srs_command
-from experiments.galactic_exodus.srs.log import build_srs_log
-from experiments.galactic_exodus.srs.model import Direction, Position, SrsCombatPhase, SrsCombatState, SrsCommand, SrsEnemyTier, create_enemy_combat_state
-from experiments.galactic_exodus.srs.run_fixture import (
+from srs.contracts import load_default_contracts
+from srs.engine import apply_srs_command
+from srs.log import build_srs_log
+from srs.model import Direction, Position, SrsCombatPhase, SrsCombatState, SrsCommand, SrsEnemyTier, create_enemy_combat_state
+from srs.run_fixture import (
     FIXTURES_DIR,
     REPO_ROOT,
     SrsFixtureError,
@@ -18,7 +18,7 @@ from experiments.galactic_exodus.srs.run_fixture import (
     run_fixture,
     run_fixture_data,
 )
-from experiments.galactic_exodus.srs.test_engine_movement import make_state
+from srs.test_engine_movement import make_state
 
 
 REQUIRED_FIXTURES = {
@@ -89,7 +89,7 @@ class SrsFixtureTests(unittest.TestCase):
         payload["expect"]["fuel"] = 999
 
         with self.assertRaisesRegex(SrsFixtureError, "expect mismatch for fuel"):
-            from experiments.galactic_exodus.srs.run_fixture import run_fixture_data
+            from srs.run_fixture import run_fixture_data
 
             run_fixture_data(payload, contracts=self.contracts)
 
@@ -99,7 +99,7 @@ class SrsFixtureTests(unittest.TestCase):
         payload["commands"] = [dict(payload["commands"][0], bad_field=True)]
 
         with self.assertRaisesRegex(SrsFixtureError, "unknown command field"):
-            from experiments.galactic_exodus.srs.run_fixture import run_fixture_data
+            from srs.run_fixture import run_fixture_data
 
             run_fixture_data(payload, contracts=self.contracts)
 
@@ -160,7 +160,7 @@ class SrsFixtureTests(unittest.TestCase):
         payload["expect"]["render_not_contains"] = "."
 
         with self.assertRaisesRegex(SrsFixtureError, "expect mismatch for render_not_contains"):
-            from experiments.galactic_exodus.srs.run_fixture import run_fixture_data
+            from srs.run_fixture import run_fixture_data
 
             run_fixture_data(payload, contracts=self.contracts)
 

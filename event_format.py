@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Iterable
 
-from experiments.galactic_exodus import engine, simulate
+import engine, simulate
 
 
 def format_lrs_event_summary(event: engine.TurnEvent) -> str:

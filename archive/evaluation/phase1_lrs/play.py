@@ -8,11 +8,11 @@ from pathlib import Path
 from typing import Sequence, TextIO
 
 if __package__ in (None, ""):
-    sys.path.insert(0, str(Path(__file__).resolve().parents[5]))
+    sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
 
-from experiments.galactic_exodus import engine, event_format, simulate
-from experiments.galactic_exodus.display import render_lrs_border_light_map
-from experiments.galactic_exodus.hud import CompactHudContext, render_compact_hud
+import engine, event_format, simulate
+from display import render_lrs_border_light_map
+from hud import CompactHudContext, render_compact_hud
 
 ABORTED_BY_USER = engine.FINAL_OUTCOME_ABORTED_NO_POLICY_ACTION
 KNOWN_TERRAIN_SYMBOLS = {".", "N", "A", "@", "B", "R"}

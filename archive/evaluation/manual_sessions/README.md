@@ -11,4 +11,4 @@ These scripts are retained for historical replay and recovery only. They are not
 | `evaluate_manual_sessions.py` | Validate historical `prototype_manual_sessions.csv` rows against GameLog v3 JSON logs |
 | `create_manual_sessions_csv.py` | Rebuild scaffold CSV rows from stored JSON logs |
 
-`run_manual_sessions.py` defaults to `experiments/galactic_exodus/archive/evaluation/phase1_lrs/play.py`, so it stays archived with the Phase 1 LRS-only CLI rather than remaining as an active operator tool.
+`run_manual_sessions.py` defaults to `archive/evaluation/phase1_lrs/play.py`, so it stays archived with the Phase 1 LRS-only CLI rather than remaining as an active operator tool.

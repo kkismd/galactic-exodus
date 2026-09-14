@@ -4,8 +4,8 @@ import unittest
 from dataclasses import replace
 from pathlib import Path
 
-from experiments.galactic_exodus.srs.contracts import load_default_contracts
-from experiments.galactic_exodus.srs.engine import (
+from srs.contracts import load_default_contracts
+from srs.engine import (
     apply_srs_command,
     bresenham_line,
     enemy_attackable_positions,
@@ -13,8 +13,8 @@ from experiments.galactic_exodus.srs.engine import (
     is_attackable_position,
     run_srs_commands,
 )
-from experiments.galactic_exodus.srs.log import COMBAT_REJECTED, COMBAT_TRANSITIONED, WARP_EXIT_REJECTED
-from experiments.galactic_exodus.srs.model import (
+from srs.log import COMBAT_REJECTED, COMBAT_TRANSITIONED, WARP_EXIT_REJECTED
+from srs.model import (
     Direction,
     Position,
     SrsBaseUpgrade,
@@ -28,10 +28,10 @@ from experiments.galactic_exodus.srs.model import (
     SrsWeaponType,
     create_enemy_combat_state,
 )
-from experiments.galactic_exodus.srs.test_engine_movement import make_state, place_object, replace_cell_terrain
+from srs.test_engine_movement import make_state, place_object, replace_cell_terrain
 
 
-REPO_ROOT = Path(__file__).resolve().parents[3]
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
 class SrsEngineCombatTests(unittest.TestCase):

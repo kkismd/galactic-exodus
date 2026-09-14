@@ -4,11 +4,11 @@ import unittest
 from dataclasses import replace
 from pathlib import Path
 
-from experiments.galactic_exodus.srs.contracts import load_default_contracts
-from experiments.galactic_exodus.srs.engine import apply_srs_command
-from experiments.galactic_exodus.srs.generate import EDGE_POSITIONS, create_sector
-from experiments.galactic_exodus.srs.log import WARP_EXIT_ACCEPTED, WARP_EXIT_REJECTED
-from experiments.galactic_exodus.srs.model import (
+from srs.contracts import load_default_contracts
+from srs.engine import apply_srs_command
+from srs.generate import EDGE_POSITIONS, create_sector
+from srs.log import WARP_EXIT_ACCEPTED, WARP_EXIT_REJECTED
+from srs.model import (
     Direction,
     Position,
     SectorDescriptor,
@@ -22,7 +22,7 @@ from experiments.galactic_exodus.srs.model import (
 )
 
 
-REPO_ROOT = Path(__file__).resolve().parents[3]
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
 def make_state(

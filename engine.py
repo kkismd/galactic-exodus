@@ -4,7 +4,7 @@ from dataclasses import dataclass, field
 import json
 from typing import Callable, Iterable
 
-from experiments.galactic_exodus import simulate
+import simulate
 
 
 SCHEMA_VERSION = 3

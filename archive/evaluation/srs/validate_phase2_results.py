@@ -11,11 +11,11 @@ from pathlib import Path
 from typing import Any
 
 if __package__ in {None, ""}:
-    sys.path.insert(0, str(Path(__file__).resolve().parents[5]))
+    sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
 
-from experiments.galactic_exodus.srs.model import Position
-from experiments.galactic_exodus.srs.render import render_row_for_internal_y
-from experiments.galactic_exodus.srs.run_fixture import FIXTURES_DIR, REPO_ROOT, SrsFixtureRunResult, run_fixture
+from srs.model import Position
+from srs.render import render_row_for_internal_y
+from srs.run_fixture import FIXTURES_DIR, REPO_ROOT, SrsFixtureRunResult, run_fixture
 
 
 EXPECTED_SCHEMA_VERSION = 1
@@ -86,7 +86,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         "reference",
         type=Path,
         nargs="?",
-        default=Path("experiments/galactic_exodus/srs/fixtures/phase2_reference.json"),
+        default=Path("srs/fixtures/phase2_reference.json"),
     )
     return parser.parse_args(argv)
 

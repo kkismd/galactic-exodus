@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import unittest
 
-from experiments.galactic_exodus import display
-from experiments.galactic_exodus.display_reference import (
+import display
+from display_reference import (
     expected_lrs_dense_rift_snapshot,
     expected_lrs_display_snapshot,
     make_lrs_dense_rift_snapshot_state,

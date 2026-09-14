@@ -2,9 +2,9 @@ from __future__ import annotations
 
 import unittest
 
-from experiments.galactic_exodus import engine
-from experiments.galactic_exodus import event_format
-from experiments.galactic_exodus.test_engine import filled_cells, make_actual_map, make_state
+import engine
+import event_format
+from test_engine import filled_cells, make_actual_map, make_state
 
 
 class LrsEventFormatTests(unittest.TestCase):

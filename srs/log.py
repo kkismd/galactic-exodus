@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any, Mapping, Sequence
 
-from experiments.galactic_exodus.srs.model import SrsGameLog, SrsTurnEvent
+from srs.model import SrsGameLog, SrsTurnEvent
 
 
 MOVE_ACCEPTED = "MOVE_ACCEPTED"

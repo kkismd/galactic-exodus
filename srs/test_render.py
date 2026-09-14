@@ -3,8 +3,8 @@ from __future__ import annotations
 import unittest
 from dataclasses import replace
 
-from experiments.galactic_exodus.display_reference import expected_srs_display_snapshot, make_srs_display_snapshot_state
-from experiments.galactic_exodus.srs.model import (
+from display_reference import expected_srs_display_snapshot, make_srs_display_snapshot_state
+from srs.model import (
     Direction,
     Position,
     SrsCell,
@@ -14,7 +14,7 @@ from experiments.galactic_exodus.srs.model import (
     SrsTerrainType,
     create_enemy_combat_state,
 )
-from experiments.galactic_exodus.srs.render import (
+from srs.render import (
     from_display_position,
     render_display_map,
     render_known_map,
@@ -22,7 +22,7 @@ from experiments.galactic_exodus.srs.render import (
     render_row_for_internal_y,
     to_display_position,
 )
-from experiments.galactic_exodus.srs.test_engine_movement import make_state, place_object, reveal_positions, replace_cell_terrain
+from srs.test_engine_movement import make_state, place_object, reveal_positions, replace_cell_terrain
 
 
 class SrsRenderTests(unittest.TestCase):

@@ -4,8 +4,8 @@ import unittest
 from dataclasses import replace
 from pathlib import Path
 
-from experiments.galactic_exodus.srs.contracts import load_default_contracts
-from experiments.galactic_exodus.srs.engine import (
+from srs.contracts import load_default_contracts
+from srs.engine import (
     apply_srs_command,
     known_cell_at,
     observation_area,
@@ -15,9 +15,9 @@ from experiments.galactic_exodus.srs.engine import (
     reveal_observation,
     snapshot_srs_state,
 )
-from experiments.galactic_exodus.srs.generate import create_sector
-from experiments.galactic_exodus.srs.log import INTERACT_ACCEPTED
-from experiments.galactic_exodus.srs.model import (
+from srs.generate import create_sector
+from srs.log import INTERACT_ACCEPTED
+from srs.model import (
     Direction,
     Position,
     SectorDescriptor,
@@ -31,7 +31,7 @@ from experiments.galactic_exodus.srs.model import (
 )
 
 
-REPO_ROOT = Path(__file__).resolve().parents[3]
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
 def make_state(

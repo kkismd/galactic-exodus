@@ -2,11 +2,11 @@ from __future__ import annotations
 
 import unittest
 
-from experiments.galactic_exodus import display, engine, simulate
-from experiments.galactic_exodus.display_reference import expected_lrs_display_snapshot, make_lrs_display_snapshot_state
-from experiments.galactic_exodus.test_engine import filled_cells
-from experiments.galactic_exodus.test_engine import make_actual_map
-from experiments.galactic_exodus.test_engine import make_state
+import display, engine, simulate
+from display_reference import expected_lrs_display_snapshot, make_lrs_display_snapshot_state
+from test_engine import filled_cells
+from test_engine import make_actual_map
+from test_engine import make_state
 
 
 def make_snapshot_state() -> engine.GameState:

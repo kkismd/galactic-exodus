@@ -24,7 +24,7 @@ class LogValidationError(ValueError):
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description="Create manual-session CSV from GameLog v3 JSON files")
     p.add_argument("--input-dir", type=Path, default=Path(".tmp/galactic_exodus/manual"))
-    p.add_argument("--output", type=Path, default=Path("experiments/galactic_exodus/results/prototype_manual_sessions.csv"))
+    p.add_argument("--output", type=Path, default=Path("results/prototype_manual_sessions.csv"))
     p.add_argument("--player-id", default="kkismd")
     p.add_argument("--seed-start", type=int, default=1)
     p.add_argument("--seed-end", type=int, default=10)

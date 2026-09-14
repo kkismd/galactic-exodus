@@ -7,9 +7,10 @@ import subprocess
 import unittest
 from typing import TextIO
 
-from experiments.galactic_exodus import engine as lrs_engine
-from experiments.galactic_exodus import integrated_play
-from experiments.galactic_exodus.srs import model as srs_model
+import engine as lrs_engine
+import integrated_play
+from test_support import REPOSITORY_ROOT
+from srs import model as srs_model
 
 
 class IntegratedPlayCliTests(unittest.TestCase):
@@ -27,8 +28,8 @@ class IntegratedPlayCliTests(unittest.TestCase):
 
     def test_script_entrypoint_starts_with_seed_42(self) -> None:
         result = subprocess.run(
-            ["python", "experiments/galactic_exodus/integrated_play.py", "--seed", "42"],
-            cwd=Path(__file__).resolve().parents[2],
+            ["python", "integrated_play.py", "--seed", "42"],
+            cwd=REPOSITORY_ROOT,
             input="Q\n",
             text=True,
             capture_output=True,
@@ -644,10 +645,10 @@ class IntegratedPlayCliTests(unittest.TestCase):
         self.assertTrue(result_index < lrs_index < srs_index < hud_index)
 
     def test_readme_mentions_integrated_cli(self) -> None:
-        readme = Path("experiments/galactic_exodus/README.md").read_text(encoding="utf-8")
+        readme = (REPOSITORY_ROOT / "README.md").read_text(encoding="utf-8")
 
         self.assertIn("integrated_play.py", readme)
-        self.assertIn("python experiments/galactic_exodus/integrated_play.py --seed 42", readme)
+        self.assertIn("python integrated_play.py --seed 42", readme)
 
     def test_initial_display_snapshot_contains_expected_sections_in_order(self) -> None:
         _, stdout, _ = self.run_cli(["--seed", "42"], "Q\n")

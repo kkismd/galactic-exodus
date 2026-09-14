@@ -5,18 +5,18 @@ from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Any, Mapping
 
-from experiments.galactic_exodus.srs.contracts import SrsContracts, load_default_contracts
-from experiments.galactic_exodus.srs.encounter import (
+from srs.contracts import SrsContracts, load_default_contracts
+from srs.encounter import (
     EncounterRollDisposition,
     FixedEncounterRoll,
     combat_state_from_fixed_encounter,
     encounter_roll_disposition,
     resolve_fixed_encounter_roll,
 )
-from experiments.galactic_exodus.srs.engine import apply_srs_command, restore_srs_state, reveal_full_observation, reveal_observation
-from experiments.galactic_exodus.srs.generate import create_sector
-from experiments.galactic_exodus.srs.log import build_srs_log
-from experiments.galactic_exodus.srs.model import (
+from srs.engine import apply_srs_command, restore_srs_state, reveal_full_observation, reveal_observation
+from srs.generate import create_sector
+from srs.log import build_srs_log
+from srs.model import (
     SrsBaseUpgrade,
     CostMode,
     Direction,
@@ -41,10 +41,10 @@ from experiments.galactic_exodus.srs.model import (
     SrsWeaponType,
     create_enemy_combat_state,
 )
-from experiments.galactic_exodus.srs.render import render_known_map
+from srs.render import render_known_map
 
 
-REPO_ROOT = Path(__file__).resolve().parents[3]
+REPO_ROOT = Path(__file__).resolve().parents[1]
 FIXTURES_DIR = Path(__file__).resolve().parent / "fixtures"
 
 _ALLOWED_COMMAND_KEYS = frozenset(

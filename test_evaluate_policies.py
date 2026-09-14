@@ -7,13 +7,14 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from experiments.galactic_exodus import engine
-from experiments.galactic_exodus.archive.evaluation.phase1_lrs import evaluate_policies
-from experiments.galactic_exodus import simulate
-from experiments.galactic_exodus.test_engine import filled_cells
-from experiments.galactic_exodus.test_engine import make_actual_map
-from experiments.galactic_exodus.test_engine import make_state
-from experiments.galactic_exodus.test_engine import start_neighborhood_known_cells
+import engine
+from archive.evaluation.phase1_lrs import evaluate_policies
+from test_support import TEMP_DIR
+import simulate
+from test_engine import filled_cells
+from test_engine import make_actual_map
+from test_engine import make_state
+from test_engine import start_neighborhood_known_cells
 
 
 class PolicySelectionTests(unittest.TestCase):
@@ -352,7 +353,7 @@ class MainTests(unittest.TestCase):
             ),
         ]
 
-        with tempfile.TemporaryDirectory(dir=".tmp") as tmp_dir:
+        with tempfile.TemporaryDirectory(dir=TEMP_DIR) as tmp_dir:
             root = Path(tmp_dir)
             output_path = root / "runs.csv"
             summary_path = root / "summary.json"

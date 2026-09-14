@@ -16,19 +16,19 @@ except ImportError:  # pragma: no cover - readline is platform dependent.
     pass
 
 if __package__ in (None, ""):
-    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+    sys.path.insert(0, str(Path(__file__).resolve().parents[0]))
 
-from experiments.galactic_exodus import engine as lrs_engine
-from experiments.galactic_exodus.display import render_lrs_border_light_map
-from experiments.galactic_exodus.hud import CompactHudContext, render_compact_hud
-from experiments.galactic_exodus.srs import engine as srs_engine
-from experiments.galactic_exodus.srs import event_format as srs_event_format
-from experiments.galactic_exodus.srs.contracts import load_default_contracts
-from experiments.galactic_exodus.srs import model as srs_model
-from experiments.galactic_exodus.srs.render import render_display_map
+import engine as lrs_engine
+from display import render_lrs_border_light_map
+from hud import CompactHudContext, render_compact_hud
+from srs import engine as srs_engine
+from srs import event_format as srs_event_format
+from srs.contracts import load_default_contracts
+from srs import model as srs_model
+from srs.render import render_display_map
 
 
-REPO_ROOT = Path(__file__).resolve().parents[2]
+REPO_ROOT = Path(__file__).resolve().parents[0]
 SRS_CONTRACTS = load_default_contracts(REPO_ROOT)
 
 

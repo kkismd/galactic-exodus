@@ -4,15 +4,15 @@ import unittest
 from dataclasses import replace
 from pathlib import Path
 
-from experiments.galactic_exodus.srs.contracts import load_default_contracts
-from experiments.galactic_exodus.srs.engine import apply_srs_command
-from experiments.galactic_exodus.srs.log import (
+from srs.contracts import load_default_contracts
+from srs.engine import apply_srs_command
+from srs.log import (
     INTERACT_ACCEPTED,
     INTERACT_REJECTED,
     OBJECT_CONSUMED,
     STATION_ACTIVATED,
 )
-from experiments.galactic_exodus.srs.model import (
+from srs.model import (
     Direction,
     Position,
     SrsBaseUpgrade,
@@ -21,10 +21,10 @@ from experiments.galactic_exodus.srs.model import (
     SrsObjectType,
     SrsSalvageChoice,
 )
-from experiments.galactic_exodus.srs.test_engine_movement import make_state, place_object
+from srs.test_engine_movement import make_state, place_object
 
 
-REPO_ROOT = Path(__file__).resolve().parents[3]
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
 class SrsEngineInteractionTests(unittest.TestCase):
     @classmethod

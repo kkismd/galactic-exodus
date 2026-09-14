@@ -7,7 +7,7 @@ from pathlib import Path
 from types import MappingProxyType
 from typing import Any, Mapping
 
-from experiments.galactic_exodus.srs.model import CostMode, Direction, MovementRule, ObservationMode
+from srs.model import CostMode, Direction, MovementRule, ObservationMode
 
 
 class SrsContractError(ValueError):
@@ -221,7 +221,7 @@ def load_srs_movement(path: Path) -> SrsMovementContract:
 
 
 def load_default_contracts(root: Path) -> SrsContracts:
-    base = root / "experiments" / "galactic_exodus" / "srs"
+    base = root / "srs"
     contracts = SrsContracts(
         initial_values=load_initial_values(base / "phase2_initial_values.json"),
         elements=load_srs_elements(base / "phase2_srs_elements.json"),

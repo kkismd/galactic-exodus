@@ -15,8 +15,8 @@ This directory contains the Python prototype and evaluation environment for Gala
 Run these commands from the repository root:
 
 ```bash
-python experiments/galactic_exodus/integrated_play.py --seed 42
-python -m unittest discover experiments/galactic_exodus
+python integrated_play.py --seed 42
+python -m unittest discover tests
 ```
 
 ## Available entrypoints
@@ -30,12 +30,12 @@ python -m unittest discover experiments/galactic_exodus
 Example:
 
 ```bash
-python experiments/galactic_exodus/integrated_play.py --seed 42
+python integrated_play.py --seed 42
 ```
 
 ### Non-interactive LRS engine
 
-- Module: `experiments.galactic_exodus.engine`
+- Module: `engine`
 - Main APIs: `create_game`, `apply_command`, `run_commands`
 - Specification: [`docs/specs/lrs_gameplay.md`](docs/specs/lrs_gameplay.md)
 
@@ -48,20 +48,20 @@ python experiments/galactic_exodus/integrated_play.py --seed 42
 Example:
 
 ```bash
-python experiments/galactic_exodus/replay_phase1_reference.py \
-  --fixtures experiments/galactic_exodus/fixtures/phase1_reference.json
+python replay_phase1_reference.py \
+  --fixtures fixtures/phase1_reference.json
 ```
 
 ### SRS fixture runner
 
-- Module entrypoint: `experiments.galactic_exodus.srs.run_fixture`
+- Module entrypoint: `srs.run_fixture`
 - Fixtures: [`srs/fixtures/`](srs/fixtures/)
 
 Example:
 
 ```bash
-python -m experiments.galactic_exodus.srs.run_fixture \
-  experiments/galactic_exodus/srs/fixtures/resource_cache_single_9x9.json
+python -m srs.run_fixture \
+  srs/fixtures/resource_cache_single_9x9.json
 ```
 
 ### Current generation helper and archived evaluation scripts
@@ -75,9 +75,9 @@ python -m experiments.galactic_exodus.srs.run_fixture \
 Examples:
 
 ```bash
-python experiments/galactic_exodus/simulate.py --seed 42
-python experiments/galactic_exodus/archive/evaluation/phase1_lrs/metrics.py --seed-start 1 --seed-count 10
-python experiments/galactic_exodus/archive/evaluation/phase1_lrs/fuel_metrics.py \
+python simulate.py --seed 42
+python archive/evaluation/phase1_lrs/metrics.py --seed-start 1 --seed-count 10
+python archive/evaluation/phase1_lrs/fuel_metrics.py \
   --seed-start 1 \
   --seed-count 10 \
   --rift-density 0.10 \
@@ -92,7 +92,7 @@ python experiments/galactic_exodus/archive/evaluation/phase1_lrs/fuel_metrics.py
 Primary prototype test command:
 
 ```bash
-python -m unittest discover experiments/galactic_exodus
+python -m unittest discover tests
 ```
 
 Repository-wide checks:
@@ -158,4 +158,4 @@ cargo test
 
 ## Authority
 
-この README は実行方法と文書への導線を提供する entrypoint であり、gameplay 仕様の正本ではありません。現行仕様は `experiments/galactic_exodus/docs/specs/` を参照してください。評価根拠は `docs/evaluations/`、設計資料は `docs/design/`、履歴資料は `docs/archive/` に分離されています。
+この README は実行方法と文書への導線を提供する entrypoint であり、gameplay 仕様の正本ではありません。現行仕様は `docs/specs/` を参照してください。評価根拠は `docs/evaluations/`、設計資料は `docs/design/`、履歴資料は `docs/archive/` に分離されています。

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from experiments.galactic_exodus.srs.log import (
+from srs.log import (
     INTERACT_ACCEPTED,
     INTERACT_REJECTED,
     MOVE_ACCEPTED,

@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from dataclasses import replace
 
-from experiments.galactic_exodus import engine, simulate
-from experiments.galactic_exodus.srs.model import (
+import engine, simulate
+from srs.model import (
     Direction,
     Position,
     SrsCell,
@@ -13,9 +13,9 @@ from experiments.galactic_exodus.srs.model import (
     SrsTerrainType,
     create_enemy_combat_state,
 )
-from experiments.galactic_exodus.srs.test_engine_movement import make_state as make_srs_state
-from experiments.galactic_exodus.srs.test_engine_movement import place_object, reveal_positions
-from experiments.galactic_exodus.test_engine import filled_cells, make_actual_map, make_state as make_lrs_state
+from srs.test_engine_movement import make_state as make_srs_state
+from srs.test_engine_movement import place_object, reveal_positions
+from test_engine import filled_cells, make_actual_map, make_state as make_lrs_state
 
 
 def make_lrs_display_snapshot_state() -> engine.GameState:

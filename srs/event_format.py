@@ -3,9 +3,9 @@ from __future__ import annotations
 from collections.abc import Mapping, Sequence
 from typing import Any
 
-from experiments.galactic_exodus.srs import log
-from experiments.galactic_exodus.srs.model import Position
-from experiments.galactic_exodus.srs.render import to_display_position
+from srs import log
+from srs.model import Position
+from srs.render import to_display_position
 
 
 def format_srs_event_summary(event: log.SrsTurnEvent) -> str:

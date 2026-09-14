@@ -7,8 +7,8 @@ import random
 from types import MappingProxyType
 from typing import Mapping, Sequence
 
-from experiments.galactic_exodus.srs.log import ENCOUNTER_ROLLED, make_turn_event
-from experiments.galactic_exodus.srs.model import (
+from srs.log import ENCOUNTER_ROLLED, make_turn_event
+from srs.model import (
     Position,
     SectorType,
     SrsCombatState,
