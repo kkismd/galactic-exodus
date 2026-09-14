@@ -9,6 +9,7 @@ from typing import TextIO
 
 import engine as lrs_engine
 import integrated_play
+from test_support import REPOSITORY_ROOT
 from srs import model as srs_model
 
 
@@ -28,7 +29,7 @@ class IntegratedPlayCliTests(unittest.TestCase):
     def test_script_entrypoint_starts_with_seed_42(self) -> None:
         result = subprocess.run(
             ["python", "integrated_play.py", "--seed", "42"],
-            cwd=Path(__file__).resolve().parents[0],
+            cwd=REPOSITORY_ROOT,
             input="Q\n",
             text=True,
             capture_output=True,
@@ -644,7 +645,7 @@ class IntegratedPlayCliTests(unittest.TestCase):
         self.assertTrue(result_index < lrs_index < srs_index < hud_index)
 
     def test_readme_mentions_integrated_cli(self) -> None:
-        readme = Path("README.md").read_text(encoding="utf-8")
+        readme = (REPOSITORY_ROOT / "README.md").read_text(encoding="utf-8")
 
         self.assertIn("integrated_play.py", readme)
         self.assertIn("python integrated_play.py --seed 42", readme)

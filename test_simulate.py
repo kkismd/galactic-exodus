@@ -5,6 +5,7 @@ import sys
 from unittest.mock import patch
 
 import simulate
+from test_support import REPOSITORY_ROOT
 
 
 def filled_cells(symbol: str = ".") -> simulate.Cells:
@@ -796,7 +797,7 @@ class ReadmeCommandTests(unittest.TestCase):
             check=True,
             capture_output=True,
             text=True,
-            cwd=Path(__file__).resolve().parents[0],
+            cwd=REPOSITORY_ROOT,
         )
 
     def test_readme_standard_simulate_command_runs(self) -> None:
@@ -837,8 +838,8 @@ class ReadmeCommandTests(unittest.TestCase):
         self.assertIn("rift_density: 0.10", result.stdout)
 
     def test_readme_standard_fuel_metrics_command_runs(self) -> None:
-        csv_output = Path(".tmp/readme-fuel-metrics.csv")
-        markdown_output = Path(".tmp/readme-fuel-metrics.md")
+        csv_output = REPOSITORY_ROOT / ".tmp/readme-fuel-metrics.csv"
+        markdown_output = REPOSITORY_ROOT / ".tmp/readme-fuel-metrics.md"
         self.addCleanup(csv_output.unlink, missing_ok=True)
         self.addCleanup(markdown_output.unlink, missing_ok=True)
 

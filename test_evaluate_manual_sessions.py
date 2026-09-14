@@ -7,6 +7,7 @@ import unittest
 from pathlib import Path
 
 from archive.evaluation.manual_sessions import evaluate_manual_sessions
+from test_support import TEMP_DIR
 
 
 FIELDNAMES = evaluate_manual_sessions.FIELDNAMES
@@ -82,7 +83,7 @@ class EvaluateManualSessionsTests(unittest.TestCase):
             writer.writerows(rows)
 
     def test_validate_manual_sessions_accepts_matching_csv_and_logs(self) -> None:
-        with tempfile.TemporaryDirectory(dir=".tmp") as tmp_dir:
+        with tempfile.TemporaryDirectory(dir=TEMP_DIR) as tmp_dir:
             root = Path(tmp_dir)
             csv_path = root / "prototype_manual_sessions.csv"
             rows: list[dict[str, str]] = []
@@ -99,7 +100,7 @@ class EvaluateManualSessionsTests(unittest.TestCase):
         self.assertEqual(exit_code, 0)
 
     def test_validate_manual_sessions_rejects_objective_mismatch(self) -> None:
-        with tempfile.TemporaryDirectory(dir=".tmp") as tmp_dir:
+        with tempfile.TemporaryDirectory(dir=TEMP_DIR) as tmp_dir:
             root = Path(tmp_dir)
             csv_path = root / "prototype_manual_sessions.csv"
             log_path = root / "manual" / "seed-001.json"
@@ -115,7 +116,7 @@ class EvaluateManualSessionsTests(unittest.TestCase):
         self.assertEqual(exit_code, 1)
 
     def test_validate_manual_sessions_rejects_invalid_score(self) -> None:
-        with tempfile.TemporaryDirectory(dir=".tmp") as tmp_dir:
+        with tempfile.TemporaryDirectory(dir=TEMP_DIR) as tmp_dir:
             root = Path(tmp_dir)
             csv_path = root / "prototype_manual_sessions.csv"
             log_path = root / "manual" / "seed-001.json"
@@ -131,7 +132,7 @@ class EvaluateManualSessionsTests(unittest.TestCase):
         self.assertEqual(exit_code, 1)
 
     def test_validate_manual_sessions_rejects_replacement_character_in_notes(self) -> None:
-        with tempfile.TemporaryDirectory(dir=".tmp") as tmp_dir:
+        with tempfile.TemporaryDirectory(dir=TEMP_DIR) as tmp_dir:
             root = Path(tmp_dir)
             csv_path = root / "prototype_manual_sessions.csv"
             log_path = root / "manual" / "seed-001.json"
@@ -147,7 +148,7 @@ class EvaluateManualSessionsTests(unittest.TestCase):
         self.assertEqual(exit_code, 1)
 
     def test_validate_manual_sessions_rejects_replacement_character_in_player_id(self) -> None:
-        with tempfile.TemporaryDirectory(dir=".tmp") as tmp_dir:
+        with tempfile.TemporaryDirectory(dir=TEMP_DIR) as tmp_dir:
             root = Path(tmp_dir)
             csv_path = root / "prototype_manual_sessions.csv"
             log_path = root / "manual" / "seed-001.json"

@@ -8,7 +8,6 @@ single ``tests`` discovery target for the standard unittest command.
 from __future__ import annotations
 
 import importlib
-import os
 import sys
 from pathlib import Path
 import unittest
@@ -17,8 +16,6 @@ import unittest
 REPOSITORY_ROOT = Path(__file__).resolve().parent.parent
 if str(REPOSITORY_ROOT) not in sys.path:
     sys.path.insert(0, str(REPOSITORY_ROOT))
-os.chdir(REPOSITORY_ROOT)
-(REPOSITORY_ROOT / ".tmp").mkdir(exist_ok=True)
 
 
 def load_tests(

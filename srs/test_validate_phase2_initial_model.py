@@ -9,13 +9,14 @@ from io import StringIO
 from pathlib import Path
 
 from archive.evaluation.srs import validate_phase2_initial_model as validator
+from test_support import REPOSITORY_ROOT
 
 
 class Phase2InitialModelValidationTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.fixtures = Path("srs")
-        self.archive_docs = Path("docs/archive")
-        self.root = Path(".tmp/phase2_initial_model_tests") / self._testMethodName
+        self.fixtures = REPOSITORY_ROOT / "srs"
+        self.archive_docs = REPOSITORY_ROOT / "docs/archive"
+        self.root = REPOSITORY_ROOT / ".tmp/phase2_initial_model_tests" / self._testMethodName
         self.root.mkdir(parents=True, exist_ok=True)
         self.model = self.copy_archive_doc("phase2_initial_model.md")
         self.questions = self.copy_fixture("phase2_questions.csv")

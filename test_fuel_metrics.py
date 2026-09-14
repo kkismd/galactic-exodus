@@ -6,6 +6,7 @@ from types import SimpleNamespace
 import simulate
 from archive.evaluation.phase1_lrs import fuel_metrics
 from archive.evaluation.phase1_lrs import metrics
+from test_support import REPOSITORY_ROOT
 
 
 def make_fuel_analysis(
@@ -393,7 +394,7 @@ class CollectionAndCsvTests(unittest.TestCase):
             best_cost_via_resource_stats=metrics.DistributionStats(1, 1, 10, 10, 10, 10),
         )
 
-        output_path = Path(".tmp/fuel-metrics-test.csv")
+        output_path = REPOSITORY_ROOT / ".tmp/fuel-metrics-test.csv"
         output_path.parent.mkdir(exist_ok=True)
         fuel_metrics.write_csv(output_path, [summary_a, summary_b])
 
@@ -417,8 +418,8 @@ class CollectionAndCsvTests(unittest.TestCase):
             base_supplies="8,10,12",
             resource_supply=5,
             resource_counts="0,1,3",
-            csv_output=Path("results/fuel_comparison_low_initial_seed_1_1000.csv"),
-            markdown_output=Path("results/fuel_comparison_low_initial_seed_1_1000.md"),
+            csv_output=REPOSITORY_ROOT / "results/fuel_comparison_low_initial_seed_1_1000.csv",
+            markdown_output=REPOSITORY_ROOT / "results/fuel_comparison_low_initial_seed_1_1000.md",
         )
 
         command = fuel_metrics.build_reproduction_command(args)

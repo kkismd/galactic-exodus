@@ -65,6 +65,7 @@ from srs.model import (
     SrsTerrainType,
 )
 from srs.test_engine_movement import make_state, place_object, reveal_positions, replace_cell_terrain
+from test_support import TEMP_DIR
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -1512,7 +1513,7 @@ class PolicyRunWriterTests(PolicyRunAggregationTests):
             ),
         ]
 
-        with tempfile.TemporaryDirectory(dir=".tmp") as tmp_dir:
+        with tempfile.TemporaryDirectory(dir=TEMP_DIR) as tmp_dir:
             output_path = Path(tmp_dir) / "nested" / "policy_runs.csv"
             write_policy_runs_csv(output_path, runs)
             with output_path.open(encoding="utf-8", newline="") as file:
@@ -1575,7 +1576,7 @@ class PolicyRunWriterTests(PolicyRunAggregationTests):
             ),
         ]
 
-        with tempfile.TemporaryDirectory(dir=".tmp") as tmp_dir:
+        with tempfile.TemporaryDirectory(dir=TEMP_DIR) as tmp_dir:
             summary_path = Path(tmp_dir) / "nested" / "policy_summary.json"
             write_policy_summary_json(summary_path, runs)
             text = summary_path.read_text(encoding="utf-8")
@@ -1608,7 +1609,7 @@ class PolicyRunWriterTests(PolicyRunAggregationTests):
             ),
         ]
 
-        with tempfile.TemporaryDirectory(dir=".tmp") as first_tmp_dir:
+        with tempfile.TemporaryDirectory(dir=TEMP_DIR) as first_tmp_dir:
             first_csv_path = Path(first_tmp_dir) / "policy_runs.csv"
             first_json_path = Path(first_tmp_dir) / "policy_summary.json"
             write_policy_runs_csv(first_csv_path, runs)
@@ -1616,7 +1617,7 @@ class PolicyRunWriterTests(PolicyRunAggregationTests):
             first_csv = first_csv_path.read_text(encoding="utf-8")
             first_json = first_json_path.read_text(encoding="utf-8")
 
-        with tempfile.TemporaryDirectory(dir=".tmp") as second_tmp_dir:
+        with tempfile.TemporaryDirectory(dir=TEMP_DIR) as second_tmp_dir:
             second_csv_path = Path(second_tmp_dir) / "policy_runs.csv"
             second_json_path = Path(second_tmp_dir) / "policy_summary.json"
             write_policy_runs_csv(second_csv_path, list(reversed(runs)))
@@ -1631,7 +1632,7 @@ class PolicyRunWriterTests(PolicyRunAggregationTests):
 
 class EvaluatePoliciesCliTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.root = Path(".tmp/evaluate_policies_cli_tests") / self._testMethodName
+        self.root = TEMP_DIR / "evaluate_policies_cli_tests" / self._testMethodName
         self.root.mkdir(parents=True, exist_ok=True)
 
     def tearDown(self) -> None:

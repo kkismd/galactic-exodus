@@ -8,9 +8,10 @@ from pathlib import Path
 
 import replay_phase1_reference as replay
 from archive.evaluation.phase1_lrs import validate_phase1_spec
+from test_support import REPOSITORY_ROOT
 
 
-FIXTURE_PATH = Path("fixtures/phase1_reference.json")
+FIXTURE_PATH = REPOSITORY_ROOT / "fixtures/phase1_reference.json"
 
 
 class Phase1ReferenceReplayTests(unittest.TestCase):
