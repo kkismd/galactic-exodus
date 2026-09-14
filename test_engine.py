@@ -2,8 +2,8 @@ import json
 import unittest
 from unittest.mock import patch
 
-from experiments.galactic_exodus import engine
-from experiments.galactic_exodus import simulate
+import engine
+import simulate
 
 
 def filled_cells(symbol: str = ".") -> simulate.Cells:

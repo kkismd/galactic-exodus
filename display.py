@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from experiments.galactic_exodus import engine, simulate
+import engine, simulate
 
 _OUTER_BORDER = "  +---+---+---+---+---+---+---+---+"
 _X_AXIS_LABEL = "    1   2   3   4   5   6   7   8"

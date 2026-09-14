@@ -2,7 +2,7 @@
 
 > **文書区分:** 評価根拠
 >
-> この文書は gameplay 仕様の正本ではありません。現行仕様は `experiments/galactic_exodus/docs/specs/` を参照してください。
+> この文書は gameplay 仕様の正本ではありません。現行仕様は `docs/specs/` を参照してください。
 
 ## 1. 対象と前提
 
@@ -10,11 +10,11 @@
 
 - 手動根拠:
   - `#1081` issue コメントの確認観点
-  - `experiments/galactic_exodus/results/prototype_manual_sessions.csv`
-  - 今回あらためて `experiments/galactic_exodus/srs/fixtures/*.json` を `run_fixture.py` で確認したメモ
+  - `results/prototype_manual_sessions.csv`
+  - 今回あらためて `srs/fixtures/*.json` を `run_fixture.py` で確認したメモ
 - 自動根拠:
-  - `experiments/galactic_exodus/srs/results/policy_runs.csv`
-  - `experiments/galactic_exodus/srs/results/policy_summary.json`
+  - `srs/results/policy_runs.csv`
+  - `srs/results/policy_summary.json`
 
 注意:
 
@@ -26,7 +26,7 @@
 
 ### 2.1 prototype manual CSV から読めること
 
-`experiments/galactic_exodus/results/prototype_manual_sessions.csv` は Phase 2 SRS 専用 runner の出力ではないが、探索価値、補給判断、断層理解、表示負荷に関する主観傾向を持っている。
+`results/prototype_manual_sessions.csv` は Phase 2 SRS 専用 runner の出力ではないが、探索価値、補給判断、断層理解、表示負荷に関する主観傾向を持っている。
 
 - セッション数: 10
 - 勝利: 9

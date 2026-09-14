@@ -6,17 +6,17 @@ from contextlib import redirect_stdout
 from dataclasses import replace
 from pathlib import Path
 
-from experiments.galactic_exodus.srs.model import Direction, Position, SrsObjectType, SrsTerrainType
-from experiments.galactic_exodus.srs.run_fixture import run_fixture
-from experiments.galactic_exodus.srs.run_manual_eval import (
+from srs.model import Direction, Position, SrsObjectType, SrsTerrainType
+from srs.run_fixture import run_fixture
+from srs.run_manual_eval import (
     _compact_hud_text,
     _event_summary_lines,
     _print_case,
     _player_cell_text,
     _render_known_map_spaced_for_manual_eval,
 )
-from experiments.galactic_exodus.srs.render import render_row_for_internal_y
-from experiments.galactic_exodus.srs.test_engine_movement import make_state, place_object, reveal_positions, replace_cell_terrain
+from srs.render import render_row_for_internal_y
+from srs.test_engine_movement import make_state, place_object, reveal_positions, replace_cell_terrain
 
 
 class SrsRunManualEvalTests(unittest.TestCase):

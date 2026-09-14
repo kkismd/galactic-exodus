@@ -3,8 +3,8 @@ from __future__ import annotations
 import random
 from typing import Iterable
 
-from experiments.galactic_exodus.srs.contracts import SrsContracts
-from experiments.galactic_exodus.srs.model import (
+from srs.contracts import SrsContracts
+from srs.model import (
     Direction,
     Position,
     SectorDescriptor,

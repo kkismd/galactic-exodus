@@ -2,13 +2,13 @@ from __future__ import annotations
 
 import unittest
 
-from experiments.galactic_exodus.display_reference import (
+from display_reference import (
     expected_srs_display_snapshot,
     expected_srs_symbol_contract_snapshot,
     make_srs_display_snapshot_state,
     make_srs_symbol_contract_snapshot_state,
 )
-from experiments.galactic_exodus.srs.render import render_display_map
+from srs.render import render_display_map
 
 
 class SrsDisplaySnapshotTests(unittest.TestCase):

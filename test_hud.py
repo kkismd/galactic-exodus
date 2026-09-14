@@ -3,8 +3,8 @@ from __future__ import annotations
 import unittest
 from dataclasses import replace
 
-from experiments.galactic_exodus.hud import CompactHudContext, render_compact_hud
-from experiments.galactic_exodus.srs.model import (
+from hud import CompactHudContext, render_compact_hud
+from srs.model import (
     Direction,
     Position,
     SectorType,
@@ -17,9 +17,9 @@ from experiments.galactic_exodus.srs.model import (
     SrsTerrainType,
     create_enemy_combat_state,
 )
-from experiments.galactic_exodus.srs.test_engine_movement import make_state as make_srs_state
-from experiments.galactic_exodus.srs.test_engine_movement import place_object, reveal_positions, replace_cell_terrain
-from experiments.galactic_exodus.test_engine import filled_cells, make_actual_map, make_state as make_lrs_state
+from srs.test_engine_movement import make_state as make_srs_state
+from srs.test_engine_movement import place_object, reveal_positions, replace_cell_terrain
+from test_engine import filled_cells, make_actual_map, make_state as make_lrs_state
 
 
 def _all_positions(state: object) -> list[Position]:

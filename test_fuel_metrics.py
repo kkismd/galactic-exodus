@@ -3,9 +3,9 @@ from pathlib import Path
 import unittest
 from types import SimpleNamespace
 
-from experiments.galactic_exodus import simulate
-from experiments.galactic_exodus.archive.evaluation.phase1_lrs import fuel_metrics
-from experiments.galactic_exodus.archive.evaluation.phase1_lrs import metrics
+import simulate
+from archive.evaluation.phase1_lrs import fuel_metrics
+from archive.evaluation.phase1_lrs import metrics
 
 
 def make_fuel_analysis(
@@ -417,8 +417,8 @@ class CollectionAndCsvTests(unittest.TestCase):
             base_supplies="8,10,12",
             resource_supply=5,
             resource_counts="0,1,3",
-            csv_output=Path("experiments/galactic_exodus/results/fuel_comparison_low_initial_seed_1_1000.csv"),
-            markdown_output=Path("experiments/galactic_exodus/results/fuel_comparison_low_initial_seed_1_1000.md"),
+            csv_output=Path("results/fuel_comparison_low_initial_seed_1_1000.csv"),
+            markdown_output=Path("results/fuel_comparison_low_initial_seed_1_1000.md"),
         )
 
         command = fuel_metrics.build_reproduction_command(args)

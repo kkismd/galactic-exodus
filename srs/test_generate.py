@@ -6,14 +6,14 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
-from experiments.galactic_exodus.srs.contracts import load_default_contracts
-from experiments.galactic_exodus.srs.generate import (
+from srs.contracts import load_default_contracts
+from srs.generate import (
     EDGE_POSITIONS,
     SrsGenerationError,
     create_sector,
     resource_cache_restore_values,
 )
-from experiments.galactic_exodus.srs.model import (
+from srs.model import (
     Direction,
     Position,
     SectorDescriptor,
@@ -23,8 +23,8 @@ from experiments.galactic_exodus.srs.model import (
 )
 
 
-REPO_ROOT = Path(__file__).resolve().parents[3]
-SRS_DIR = REPO_ROOT / "experiments" / "galactic_exodus" / "srs"
+REPO_ROOT = Path(__file__).resolve().parents[1]
+SRS_DIR = REPO_ROOT / "srs"
 FIXTURES_DIR = SRS_DIR / "fixtures"
 
 

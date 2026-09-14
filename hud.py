@@ -2,9 +2,9 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from experiments.galactic_exodus import engine
-from experiments.galactic_exodus.srs import model as srs_model
-from experiments.galactic_exodus.srs.render import to_display_position
+import engine
+from srs import model as srs_model
+from srs.render import to_display_position
 
 
 _DIRECTION_ORDER = (

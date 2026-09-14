@@ -4,23 +4,23 @@ import unittest
 from dataclasses import replace
 from pathlib import Path
 
-from experiments.galactic_exodus.srs.contracts import load_default_contracts
-from experiments.galactic_exodus.srs.encounter import (
+from srs.contracts import load_default_contracts
+from srs.encounter import (
     spawn_candidate_points,
     spawn_enemies_for_encounter,
 )
-from experiments.galactic_exodus.srs.model import (
+from srs.model import (
     Direction,
     Position,
     SectorDescriptor,
     SectorType,
     SrsEnemyTier,
 )
-from experiments.galactic_exodus.srs.run_fixture import FIXTURES_DIR, run_fixture
-from experiments.galactic_exodus.srs.test_engine_movement import make_state
+from srs.run_fixture import FIXTURES_DIR, run_fixture
+from srs.test_engine_movement import make_state
 
 
-REPO_ROOT = Path(__file__).resolve().parents[3]
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
 def chebyshev_distance(a: Position, b: Position) -> int:

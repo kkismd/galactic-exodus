@@ -6,11 +6,11 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from experiments.galactic_exodus import replay_phase1_reference as replay
-from experiments.galactic_exodus.archive.evaluation.phase1_lrs import validate_phase1_spec
+import replay_phase1_reference as replay
+from archive.evaluation.phase1_lrs import validate_phase1_spec
 
 
-FIXTURE_PATH = Path("experiments/galactic_exodus/fixtures/phase1_reference.json")
+FIXTURE_PATH = Path("fixtures/phase1_reference.json")
 
 
 class Phase1ReferenceReplayTests(unittest.TestCase):

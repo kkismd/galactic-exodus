@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
 
-from experiments.galactic_exodus.srs.model import Direction, Position, SrsGameState, SrsObjectType, SrsTerrainType
+from srs.model import Direction, Position, SrsGameState, SrsObjectType, SrsTerrainType
 
 
 UNKNOWN_SYMBOL = "?"

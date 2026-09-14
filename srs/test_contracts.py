@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from experiments.galactic_exodus.srs.contracts import (
+from srs.contracts import (
     SrsContractError,
     load_default_contracts,
     load_initial_values,
@@ -13,11 +13,11 @@ from experiments.galactic_exodus.srs.contracts import (
     load_srs_generation,
     load_srs_movement,
 )
-from experiments.galactic_exodus.srs.model import Direction, ObservationMode
+from srs.model import Direction, ObservationMode
 
 
-REPO_ROOT = Path(__file__).resolve().parents[3]
-SRS_DIR = REPO_ROOT / "experiments" / "galactic_exodus" / "srs"
+REPO_ROOT = Path(__file__).resolve().parents[1]
+SRS_DIR = REPO_ROOT / "srs"
 
 
 class SrsContractTests(unittest.TestCase):

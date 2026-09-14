@@ -6,12 +6,12 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from experiments.galactic_exodus.archive.evaluation.srs import validate_phase2_srs_generation as validator
+from archive.evaluation.srs import validate_phase2_srs_generation as validator
 
 
 class Phase2SrsGenerationValidationTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.repo_root = Path(__file__).resolve().parents[3]
+        self.repo_root = Path(__file__).resolve().parents[1]
         self.tmp_root = self.repo_root / ".tmp"
         self.tmp_root.mkdir(exist_ok=True)
         self.tempdir = tempfile.TemporaryDirectory(dir=self.tmp_root)
@@ -211,7 +211,7 @@ class Phase2SrsGenerationValidationTests(unittest.TestCase):
         result = subprocess.run(
             [
                 "python",
-                "experiments/galactic_exodus/archive/evaluation/srs/validate_phase2_srs_generation.py",
+                "archive/evaluation/srs/validate_phase2_srs_generation.py",
                 str(self.path),
             ],
             cwd=self.repo_root,

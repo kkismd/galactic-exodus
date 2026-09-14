@@ -2,7 +2,7 @@
 
 > **文書区分:** 評価根拠
 >
-> この文書は gameplay 仕様の正本ではありません。現行仕様は `experiments/galactic_exodus/docs/specs/` を参照してください。
+> この文書は gameplay 仕様の正本ではありません。現行仕様は `docs/specs/` を参照してください。
 
 ## 1. 対象範囲とバージョン
 
@@ -23,20 +23,20 @@
 ## 2. 再現コマンド
 
 ```bash
-python -m unittest discover -s experiments/galactic_exodus -p 'test_*.py'
+python -m unittest discover tests
 
-python experiments/galactic_exodus/archive/evaluation/phase1_lrs/evaluate_policies.py \
+python archive/evaluation/phase1_lrs/evaluate_policies.py \
   --seed-start 1 \
   --seed-end 1000 \
   --max-turns 256 \
-  --output experiments/galactic_exodus/results/prototype_policy_runs.csv \
-  --summary experiments/galactic_exodus/results/prototype_policy_summary.json
+  --output results/prototype_policy_runs.csv \
+  --summary results/prototype_policy_summary.json
 
-python experiments/galactic_exodus/archive/evaluation/phase1_lrs/validate_phase1b_results.py \
-  --manual experiments/galactic_exodus/results/prototype_manual_sessions.csv \
-  --runs experiments/galactic_exodus/results/prototype_policy_runs.csv \
-  --summary experiments/galactic_exodus/results/prototype_policy_summary.json \
-  --findings experiments/galactic_exodus/results/prototype_findings.csv
+python archive/evaluation/phase1_lrs/validate_phase1b_results.py \
+  --manual results/prototype_manual_sessions.csv \
+  --runs results/prototype_policy_runs.csv \
+  --summary results/prototype_policy_summary.json \
+  --findings results/prototype_findings.csv
 
 cargo fmt --check
 cargo clippy --all-targets -- -D warnings

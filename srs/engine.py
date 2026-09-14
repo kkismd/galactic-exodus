@@ -6,8 +6,8 @@ from heapq import heappop, heappush
 from math import ceil
 from typing import Any, Mapping, Sequence
 
-from experiments.galactic_exodus.srs.contracts import SrsContracts
-from experiments.galactic_exodus.srs.log import (
+from srs.contracts import SrsContracts
+from srs.log import (
     COMBAT_REJECTED,
     COMBAT_TRANSITIONED,
     INTERACT_ACCEPTED,
@@ -23,7 +23,7 @@ from experiments.galactic_exodus.srs.log import (
     WARP_EXIT_REJECTED,
     make_turn_event,
 )
-from experiments.galactic_exodus.srs.model import (
+from srs.model import (
     SrsBaseUpgrade,
     Direction,
     CostMode,

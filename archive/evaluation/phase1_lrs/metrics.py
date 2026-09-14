@@ -11,10 +11,10 @@ from dataclasses import dataclass
 import sys
 
 if __package__ in (None, ""):
-    sys.path.insert(0, str(Path(__file__).resolve().parents[5]))
-    from experiments.galactic_exodus import simulate
+    sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+    import simulate
 else:
-    from experiments.galactic_exodus import simulate
+    import simulate
 
 
 @dataclass(frozen=True)

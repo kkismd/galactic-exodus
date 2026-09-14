@@ -7,11 +7,11 @@ from datetime import datetime
 from pathlib import Path
 from typing import Iterable, Mapping, Sequence
 
-from experiments.galactic_exodus.hud import CompactHudContext, render_compact_hud
-from experiments.galactic_exodus.srs import event_format
-from experiments.galactic_exodus.srs.model import Position, SrsGameState
-from experiments.galactic_exodus.srs.render import render_display_map, render_row_for_internal_y, to_display_position
-from experiments.galactic_exodus.srs.run_fixture import FIXTURES_DIR, SrsFixtureRunResult, run_fixture
+from hud import CompactHudContext, render_compact_hud
+from srs import event_format
+from srs.model import Position, SrsGameState
+from srs.render import render_display_map, render_row_for_internal_y, to_display_position
+from srs.run_fixture import FIXTURES_DIR, SrsFixtureRunResult, run_fixture
 
 try:
     import readline  # noqa: F401  # Enables line editing/backspace on Unix-like terminals.

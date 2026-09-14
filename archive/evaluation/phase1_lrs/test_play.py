@@ -8,19 +8,19 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from experiments.galactic_exodus import engine
-from experiments.galactic_exodus import simulate
-from experiments.galactic_exodus.archive.evaluation.phase1_lrs import play
-from experiments.galactic_exodus.test_engine import filled_cells
-from experiments.galactic_exodus.test_engine import make_actual_map
-from experiments.galactic_exodus.test_engine import make_state
+import engine
+import simulate
+from archive.evaluation.phase1_lrs import play
+from test_engine import filled_cells
+from test_engine import make_actual_map
+from test_engine import make_state
 
 
 class PlayCliTests(unittest.TestCase):
     def test_script_entrypoint_starts_with_seed_42(self) -> None:
         result = subprocess.run(
-            ["python", "experiments/galactic_exodus/archive/evaluation/phase1_lrs/play.py", "--seed", "42"],
-            cwd=Path(__file__).resolve().parents[5],
+            ["python", "archive/evaluation/phase1_lrs/play.py", "--seed", "42"],
+            cwd=Path(__file__).resolve().parents[3],
             input="Q\n",
             text=True,
             capture_output=True,

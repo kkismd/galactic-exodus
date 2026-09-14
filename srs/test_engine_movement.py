@@ -5,8 +5,8 @@ from dataclasses import replace
 from pathlib import Path
 from typing import Iterable
 
-from experiments.galactic_exodus.srs.contracts import load_default_contracts
-from experiments.galactic_exodus.srs.engine import (
+from srs.contracts import load_default_contracts
+from srs.engine import (
     SrsMovementError,
     _step_position,
     apply_srs_command,
@@ -14,8 +14,8 @@ from experiments.galactic_exodus.srs.engine import (
     reveal_full_observation,
     run_srs_commands,
 )
-from experiments.galactic_exodus.srs.generate import create_sector
-from experiments.galactic_exodus.srs.log import (
+from srs.generate import create_sector
+from srs.log import (
     INTERACT_REJECTED,
     MOVE_ACCEPTED,
     MOVE_REJECTED,
@@ -23,7 +23,7 @@ from experiments.galactic_exodus.srs.log import (
     STOPPED_BEFORE_IMPASSABLE,
     WAIT_ACCEPTED,
 )
-from experiments.galactic_exodus.srs.model import (
+from srs.model import (
     CostMode,
     Direction,
     Position,
@@ -39,7 +39,7 @@ from experiments.galactic_exodus.srs.model import (
 )
 
 
-REPO_ROOT = Path(__file__).resolve().parents[3]
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
 def make_state(

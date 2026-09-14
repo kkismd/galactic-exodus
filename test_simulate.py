@@ -4,7 +4,7 @@ import subprocess
 import sys
 from unittest.mock import patch
 
-from experiments.galactic_exodus import simulate
+import simulate
 
 
 def filled_cells(symbol: str = ".") -> simulate.Cells:
@@ -796,12 +796,12 @@ class ReadmeCommandTests(unittest.TestCase):
             check=True,
             capture_output=True,
             text=True,
-            cwd=Path(__file__).resolve().parents[2],
+            cwd=Path(__file__).resolve().parents[0],
         )
 
     def test_readme_standard_simulate_command_runs(self) -> None:
         result = self.run_command(
-            "experiments/galactic_exodus/simulate.py",
+            "simulate.py",
             "--seed",
             "42",
             "--resource-count",
@@ -822,7 +822,7 @@ class ReadmeCommandTests(unittest.TestCase):
 
     def test_readme_standard_metrics_command_runs(self) -> None:
         result = self.run_command(
-            "experiments/galactic_exodus/archive/evaluation/phase1_lrs/metrics.py",
+            "archive/evaluation/phase1_lrs/metrics.py",
             "--seed-start",
             "1",
             "--seed-count",
@@ -843,7 +843,7 @@ class ReadmeCommandTests(unittest.TestCase):
         self.addCleanup(markdown_output.unlink, missing_ok=True)
 
         result = self.run_command(
-            "experiments/galactic_exodus/archive/evaluation/phase1_lrs/fuel_metrics.py",
+            "archive/evaluation/phase1_lrs/fuel_metrics.py",
             "--seed-start",
             "1",
             "--seed-count",

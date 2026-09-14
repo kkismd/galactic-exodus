@@ -6,7 +6,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from experiments.galactic_exodus.archive.evaluation.manual_sessions import evaluate_manual_sessions
+from archive.evaluation.manual_sessions import evaluate_manual_sessions
 
 
 FIELDNAMES = evaluate_manual_sessions.FIELDNAMES

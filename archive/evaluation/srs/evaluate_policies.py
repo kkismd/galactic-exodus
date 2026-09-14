@@ -12,23 +12,23 @@ import sys
 from types import MappingProxyType
 from typing import Any, Callable, Iterable, Mapping
 
-from experiments.galactic_exodus.archive.evaluation.phase1_lrs import metrics
-from experiments.galactic_exodus.srs.contracts import SrsContracts, load_default_contracts
-from experiments.galactic_exodus.srs.engine import (
+from archive.evaluation.phase1_lrs import metrics
+from srs.contracts import SrsContracts, load_default_contracts
+from srs.engine import (
     apply_srs_command,
     restore_srs_state,
     reveal_full_observation,
     reveal_observation,
 )
-from experiments.galactic_exodus.srs.generate import create_sector
-from experiments.galactic_exodus.srs.log import (
+from srs.generate import create_sector
+from srs.log import (
     INTERACT_REJECTED,
     MOVE_REJECTED,
     OBSERVATION_UPDATED,
     WARP_EXIT_ACCEPTED,
     WARP_EXIT_REJECTED,
 )
-from experiments.galactic_exodus.srs.model import (
+from srs.model import (
     CostMode,
     Direction,
     Position,
@@ -132,7 +132,7 @@ POLICY_NAME_ORDER = (
     EXPLORE_THEN_EXIT_POLICY_NAME,
     OBJECT_GREEDY_POLICY_NAME,
 )
-REPO_ROOT = Path(__file__).resolve().parents[5]
+REPO_ROOT = Path(__file__).resolve().parents[3]
 
 
 def _freeze_mapping(mapping: Mapping[str, Any]) -> Mapping[str, Any]:

@@ -2,12 +2,12 @@
 
 > **文書区分:** 評価根拠
 >
-> この文書は gameplay 仕様の正本ではありません。現行仕様は `experiments/galactic_exodus/docs/specs/` を参照してください。
+> この文書は gameplay 仕様の正本ではありません。現行仕様は `docs/specs/` を参照してください。
 
 ## Reproduction
 
 ```bash
-python experiments/galactic_exodus/archive/evaluation/phase1_lrs/fuel_metrics.py \
+python archive/evaluation/phase1_lrs/fuel_metrics.py \
   --seed-start 1 \
   --seed-count 1000 \
   --rift-density 0.10,0.15 \
@@ -15,8 +15,8 @@ python experiments/galactic_exodus/archive/evaluation/phase1_lrs/fuel_metrics.py
   --base-supplies 8,10,12 \
   --resource-supply 5 \
   --resource-counts 0,1,3 \
-  --csv-output experiments/galactic_exodus/results/fuel_comparison_seed_1_1000.csv \
-  --markdown-output experiments/galactic_exodus/docs/evaluations/phase1_fuel_comparison_seed_1_1000.md
+  --csv-output results/fuel_comparison_seed_1_1000.csv \
+  --markdown-output docs/evaluations/phase1_fuel_comparison_seed_1_1000.md
 ```
 
 ## Conclusion

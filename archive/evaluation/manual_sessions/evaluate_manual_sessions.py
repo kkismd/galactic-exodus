@@ -86,7 +86,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--csv",
         type=Path,
-        default=Path("experiments/galactic_exodus/results/prototype_manual_sessions.csv"),
+        default=Path("results/prototype_manual_sessions.csv"),
         help="Manual-session CSV path",
     )
     parser.add_argument(

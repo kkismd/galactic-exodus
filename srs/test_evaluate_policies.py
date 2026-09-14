@@ -11,8 +11,8 @@ from io import StringIO
 from pathlib import Path
 from unittest.mock import patch
 
-from experiments.galactic_exodus.archive.evaluation.srs import evaluate_policies as evaluator
-from experiments.galactic_exodus.archive.evaluation.srs.evaluate_policies import (
+from archive.evaluation.srs import evaluate_policies as evaluator
+from archive.evaluation.srs.evaluate_policies import (
     EvaluationCase,
     EvaluationCaseError,
     EXPLORE_THEN_EXIT_POLICY_NAME,
@@ -40,8 +40,8 @@ from experiments.galactic_exodus.archive.evaluation.srs.evaluate_policies import
     write_policy_runs_csv,
     write_policy_summary_json,
 )
-from experiments.galactic_exodus.srs.contracts import load_default_contracts
-from experiments.galactic_exodus.srs.log import (
+from srs.contracts import load_default_contracts
+from srs.log import (
     INTERACT_ACCEPTED,
     INTERACT_REJECTED,
     MOVE_REJECTED,
@@ -52,7 +52,7 @@ from experiments.galactic_exodus.srs.log import (
     WARP_EXIT_REJECTED,
     make_turn_event,
 )
-from experiments.galactic_exodus.srs.model import (
+from srs.model import (
     CostMode,
     Direction,
     Position,
@@ -64,10 +64,10 @@ from experiments.galactic_exodus.srs.model import (
     SrsObjectType,
     SrsTerrainType,
 )
-from experiments.galactic_exodus.srs.test_engine_movement import make_state, place_object, reveal_positions, replace_cell_terrain
+from srs.test_engine_movement import make_state, place_object, reveal_positions, replace_cell_terrain
 
 
-REPO_ROOT = Path(__file__).resolve().parents[3]
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
 def replace_cell_warp_flags(
@@ -381,7 +381,7 @@ class KnownStateRoutingHelperTests(unittest.TestCase):
         )
 
         with patch(
-            "experiments.galactic_exodus.srs.engine.route_to_known_target",
+            "srs.engine.route_to_known_target",
             side_effect=AssertionError("engine.route_to_known_target must not be used"),
         ):
             self.assertEqual(
@@ -550,7 +550,7 @@ class ExitGreedyPolicyTests(unittest.TestCase):
         state = replace_cell_warp_flags(state, Position(6, 0), frozenset({Direction.N}))
 
         with patch(
-            "experiments.galactic_exodus.srs.model.SrsActualMap.cell_at",
+            "srs.model.SrsActualMap.cell_at",
             side_effect=AssertionError("actual_map must not be used"),
         ):
             self.assertEqual(
@@ -805,7 +805,7 @@ class ObjectGreedyPolicyTests(unittest.TestCase):
         state = reveal_positions(state, [Position(4, 0), Position(4, 1), Position(4, 2)])
 
         with patch(
-            "experiments.galactic_exodus.srs.model.SrsActualMap.cell_at",
+            "srs.model.SrsActualMap.cell_at",
             side_effect=AssertionError("actual_map must not be used"),
         ):
             self.assertEqual(
@@ -976,7 +976,7 @@ class ExploreThenExitPolicyTests(unittest.TestCase):
         )
 
         with patch(
-            "experiments.galactic_exodus.srs.model.SrsActualMap.cell_at",
+            "srs.model.SrsActualMap.cell_at",
             side_effect=AssertionError("actual_map.cell_at must not be used"),
         ):
             self.assertEqual(
@@ -1047,7 +1047,7 @@ class PolicyRunLoopTests(unittest.TestCase):
 
         with patch.object(EvaluationCase, "build_initial_state", return_value=self.make_exit_ready_state()):
             with patch(
-                "experiments.galactic_exodus.archive.evaluation.srs.evaluate_policies.choose_policy_command",
+                "archive.evaluation.srs.evaluate_policies.choose_policy_command",
                 return_value=None,
             ):
                 result = run_policy_evaluation_case(
@@ -1066,7 +1066,7 @@ class PolicyRunLoopTests(unittest.TestCase):
 
         with patch.object(EvaluationCase, "build_initial_state", return_value=state):
             with patch(
-                "experiments.galactic_exodus.archive.evaluation.srs.evaluate_policies.choose_policy_command",
+                "archive.evaluation.srs.evaluate_policies.choose_policy_command",
                 side_effect=AssertionError("policy should not be queried"),
             ):
                 result = run_policy_evaluation_case(
@@ -1086,7 +1086,7 @@ class PolicyRunLoopTests(unittest.TestCase):
 
         with patch.object(EvaluationCase, "build_initial_state", return_value=state):
             with patch(
-                "experiments.galactic_exodus.archive.evaluation.srs.evaluate_policies.choose_policy_command",
+                "archive.evaluation.srs.evaluate_policies.choose_policy_command",
                 return_value=SrsCommand(command_type="MOVE_ROUTE", route=(Direction.N,)),
             ):
                 result = run_policy_evaluation_case(
@@ -1105,7 +1105,7 @@ class PolicyRunLoopTests(unittest.TestCase):
 
         with patch.object(EvaluationCase, "build_initial_state", return_value=self.make_exit_ready_state()):
             with patch(
-                "experiments.galactic_exodus.archive.evaluation.srs.evaluate_policies.choose_policy_command",
+                "archive.evaluation.srs.evaluate_policies.choose_policy_command",
                 side_effect=[
                     SrsCommand(command_type="WARP_EXIT", exit_direction=Direction.N),
                     SrsCommand(command_type="WARP_EXIT", exit_direction=Direction.S),
@@ -1127,7 +1127,7 @@ class PolicyRunLoopTests(unittest.TestCase):
 
         with patch.object(EvaluationCase, "build_initial_state", return_value=self.make_exit_ready_state()):
             with patch(
-                "experiments.galactic_exodus.archive.evaluation.srs.evaluate_policies.choose_policy_command",
+                "archive.evaluation.srs.evaluate_policies.choose_policy_command",
                 side_effect=[
                     SrsCommand(command_type="MOVE_TO", target=Position(0, 0)),
                     SrsCommand(command_type="WARP_EXIT", exit_direction=Direction.S),
@@ -1148,7 +1148,7 @@ class PolicyRunLoopTests(unittest.TestCase):
 
         with patch.object(EvaluationCase, "build_initial_state", return_value=self.make_exit_ready_state()):
             with patch(
-                "experiments.galactic_exodus.archive.evaluation.srs.evaluate_policies.choose_policy_command",
+                "archive.evaluation.srs.evaluate_policies.choose_policy_command",
                 side_effect=[
                     SrsCommand(command_type="INTERACT", target_object_id="missing-object"),
                     SrsCommand(command_type="WARP_EXIT", exit_direction=Direction.S),
@@ -1170,7 +1170,7 @@ class PolicyRunLoopTests(unittest.TestCase):
 
         with patch.object(EvaluationCase, "build_initial_state", return_value=self.make_exit_ready_state()):
             with patch(
-                "experiments.galactic_exodus.archive.evaluation.srs.evaluate_policies.choose_policy_command",
+                "archive.evaluation.srs.evaluate_policies.choose_policy_command",
                 side_effect=[repeated_command, repeated_command],
             ):
                 result = run_policy_evaluation_case(
@@ -1191,7 +1191,7 @@ class PolicyRunLoopTests(unittest.TestCase):
 
         with patch.object(EvaluationCase, "build_initial_state", return_value=self.make_exit_ready_state()):
             with patch(
-                "experiments.galactic_exodus.archive.evaluation.srs.evaluate_policies.choose_policy_command",
+                "archive.evaluation.srs.evaluate_policies.choose_policy_command",
                 side_effect=[first, second],
             ):
                 result = run_policy_evaluation_case(

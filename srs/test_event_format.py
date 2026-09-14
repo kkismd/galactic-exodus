@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import unittest
 
-from experiments.galactic_exodus.srs import event_format, log
-from experiments.galactic_exodus.srs.log import make_turn_event
+from srs import event_format, log
+from srs.log import make_turn_event
 
 
 class SrsEventFormatTests(unittest.TestCase):

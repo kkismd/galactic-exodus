@@ -1,6 +1,6 @@
 import unittest
 
-from experiments.galactic_exodus.archive.evaluation.phase1_lrs import metrics
+from archive.evaluation.phase1_lrs import metrics
 
 
 class PercentileTests(unittest.TestCase):

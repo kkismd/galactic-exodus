@@ -8,13 +8,13 @@ from contextlib import redirect_stderr, redirect_stdout
 from io import StringIO
 from pathlib import Path
 
-from experiments.galactic_exodus.archive.evaluation.srs import validate_phase2_initial_model as validator
+from archive.evaluation.srs import validate_phase2_initial_model as validator
 
 
 class Phase2InitialModelValidationTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.fixtures = Path("experiments/galactic_exodus/srs")
-        self.archive_docs = Path("experiments/galactic_exodus/docs/archive")
+        self.fixtures = Path("srs")
+        self.archive_docs = Path("docs/archive")
         self.root = Path(".tmp/phase2_initial_model_tests") / self._testMethodName
         self.root.mkdir(parents=True, exist_ok=True)
         self.model = self.copy_archive_doc("phase2_initial_model.md")

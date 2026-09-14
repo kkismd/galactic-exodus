@@ -6,13 +6,13 @@ import sys
 from pathlib import Path
 from typing import Any
 
-REPO_ROOT = Path(__file__).resolve().parents[2]
+REPO_ROOT = Path(__file__).resolve().parents[0]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-from experiments.galactic_exodus import engine
-from experiments.galactic_exodus import simulate
-from experiments.galactic_exodus.archive.evaluation.phase1_lrs import validate_phase1_spec
+import engine
+import simulate
+from archive.evaluation.phase1_lrs import validate_phase1_spec
 
 
 def load_fixture_file(path: str | Path) -> dict[str, Any]:
